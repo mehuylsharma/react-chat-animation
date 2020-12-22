@@ -1,0 +1,92 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.chat {
+    display: block;
+    margin: 0 auto;
+    top: 50%;
+    background: rgb(238, 232, 237);
+    border: 1px solid black;
+    width: 400px;
+    height: 700px;
+
+    .chat-header {
+        display: flex;
+        height: 7.5%;
+        width: 100%;
+        border: 1px solid black;
+        .recipent-name {
+            margin-left: 10%;
+            font-size: 22px;
+            margin-top: auto;
+            margin-bottom: auto;
+            border: 1px solid black;
+        }
+        .menu-icon {
+            width: 25%;
+            height: 100%;
+            border: 1px solid black;
+            img {
+                height: 100%;
+                width: auto;
+            }
+        }
+    }
+
+    .chat-live {
+        position: relative;
+        height: 52.5%;
+        border: 1px solid black;
+        overflow: hidden;
+
+        .inner-chat {
+            position: absolute;
+            bottom: 0px;
+        }
+
+        .message {
+            width: 80%;
+
+            .message-text {
+                font-size: 18px;
+                height: 80%;
+            }
+
+            .message-time {
+                height: 10%;
+                font-size: 11px;
+                display: table-cell;
+            }
+
+            .message-status {
+                font-size: 8px;
+                display: table-cell;
+            }
+
+            &.sent {
+                background-color: rgb(241, 197, 235);
+                margin-right: 0px;
+                margin-left: auto;
+            }
+
+            &.received {
+                background-color: rgb(71, 92, 151);
+                margin-left: 0px;
+                margin-right: auto;
+            }
+        }
+
+    }
+
+    .chat-footer {
+        height: 40%;
+        border: 1px solid black;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

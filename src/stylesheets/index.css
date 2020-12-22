@@ -1,0 +1,98 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.chat {
+  display: block;
+  margin: 0 auto;
+  top: 50%;
+  background: #eee8ed;
+  border: 1px solid black;
+  width: 400px;
+  height: 700px;
+}
+
+.chat .chat-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 7.5%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.chat .chat-header .recipent-name {
+  margin-left: 10%;
+  font-size: 22px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: 1px solid black;
+}
+
+.chat .chat-header .menu-icon {
+  width: 25%;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.chat .chat-header .menu-icon img {
+  height: 100%;
+  width: auto;
+}
+
+.chat .chat-live {
+  position: relative;
+  height: 52.5%;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.chat .chat-live .inner-chat {
+  position: absolute;
+  bottom: 0px;
+}
+
+.chat .chat-live .message {
+  width: 80%;
+}
+
+.chat .chat-live .message .message-text {
+  font-size: 18px;
+  height: 80%;
+}
+
+.chat .chat-live .message .message-time {
+  height: 10%;
+  font-size: 11px;
+  display: table-cell;
+}
+
+.chat .chat-live .message .message-status {
+  font-size: 8px;
+  display: table-cell;
+}
+
+.chat .chat-live .message.sent {
+  background-color: #f1c5eb;
+  margin-right: 0px;
+  margin-left: auto;
+}
+
+.chat .chat-live .message.received {
+  background-color: #475c97;
+  margin-left: 0px;
+  margin-right: auto;
+}
+
+.chat .chat-footer {
+  height: 40%;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.chat .chat-footer img {
+  width: 100%;
+  height: auto;
+}
+/*# sourceMappingURL=index.css.map */
