@@ -20,7 +20,7 @@ export default function Message(props) {
                 {props.message.time}
             </div>
             <div className="message-status">
-                <img src={status} alt="status"/>
+                <img src={status} alt=""/>
             </div>
         </div>
     );

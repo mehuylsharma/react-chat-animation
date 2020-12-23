@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import Message from './components/message';
 import { Header, Footer } from './components/ui-components';
 import ReactDOM from 'react-dom';
-import './stylesheets/index.css';
 
 const initialData = {
   headerInfo : {
@@ -15,16 +14,16 @@ const initialData = {
   messages : [
     {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
-      time: "5:31PM",
+      time: new Date(Date.now()).toLocaleTimeString(),
       status: "/images/sent-icon.png",
       tempStatus: "/images/read-icon.png",
       owner: "sent"
     },
     {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
-      time: "5:31PM",
-      status: "/images/sent-icon.png",
-      tempStatus: "/images/read-icon.png",
+      time: new Date(Date.now()).toLocaleTimeString(),
+      status: "",
+      tempStatus: "",
       owner: "received"
     }
   ]
@@ -39,7 +38,7 @@ function Chat() {
     const timer = setInterval(() => {
       setData((oldData) => [...oldData, initialData.messages[Math.round(Math.random())]]);
       setSeconds(seconds+1);
-    }, 144000);
+    }, 100000);
 
     return () => clearInterval(timer);
   })

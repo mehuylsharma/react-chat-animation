@@ -1,4 +1,7 @@
+@import 'fonts.scss';
+
 body {
+    font-family: 'LG Cafe';
     margin: 0px;
     padding: 0px;
 }
@@ -7,8 +10,7 @@ body {
     display: block;
     margin: 0 auto;
     top: 50%;
-    background: rgb(238, 232, 237);
-    border: 1px solid black;
+    background: rgb(237, 238, 234);
     width: 400px;
     height: 700px;
 
@@ -16,20 +18,22 @@ body {
         display: flex;
         height: 7.5%;
         width: 100%;
-        border: 1px solid black;
         .recipent-name {
-            margin-left: 10%;
-            font-size: 22px;
+            font-family: 'Vice City';
+            margin-right: 37.5%;
+            color: rgb(9, 44, 5);
+            margin-left: auto;
+            font-size: 26px;
             margin-top: auto;
             margin-bottom: auto;
-            border: 1px solid black;
         }
         .menu-icon {
             width: 25%;
             height: 100%;
-            border: 1px solid black;
             img {
-                height: 100%;
+                padding-top: 6px;
+                padding-left: 10px;
+                height: 70%;
                 width: auto;
             }
         }
@@ -38,7 +42,6 @@ body {
     .chat-live {
         position: relative;
         height: 52.5%;
-        border: 1px solid black;
         overflow: hidden;
 
         .inner-chat {
@@ -48,21 +51,26 @@ body {
 
         .message {
             width: 80%;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            border-spacing: 7px;
 
             .message-text {
+                margin-left: 5px;
+                padding-top: 5px;
                 font-size: 18px;
                 height: 80%;
             }
 
             .message-time {
-                height: 10%;
+                white-space:nowrap;
                 font-size: 11px;
                 display: table-cell;
             }
 
             .message-status {
                 display: table-cell;
-                padding-left: 5px;
+                margin-left: 5px;
                 img {
                     width: 3.5%;
                     height: auto;
@@ -70,14 +78,14 @@ body {
             }
 
             &.sent {
-                background-color: rgb(241, 197, 235);
-                margin-right: 0px;
+                background-color: rgb(116, 199, 61);
+                margin-right: 5px;
                 margin-left: auto;
             }
 
             &.received {
-                background-color: rgb(71, 92, 151);
-                margin-left: 0px;
+                background-color: rgb(158, 158, 158);
+                margin-left: 5px;
                 margin-right: auto;
             }
         }
