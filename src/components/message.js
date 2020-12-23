@@ -12,12 +12,12 @@ export default function Message(props) {
     });
 
     return(
-        <div className={`message ${props.message.owner}`}>
+        <div className={`${props.message.messageClass}`}>
             <div className="message-text">
                 {props.message.text}
             </div>
             <div className="message-time">
-                {props.message.time}
+                {String(new Date(props.message.time).toLocaleTimeString())}
             </div>
             <div className="message-status">
                 <img src={status} alt=""/>

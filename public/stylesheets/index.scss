@@ -88,6 +88,15 @@ body {
                 margin-left: 5px;
                 margin-right: auto;
             }
+
+            &.animated-enter {
+                opacity: 0;
+            }
+            
+            &.animated-enter-active {
+                opacity: 1;
+                transition: opacity 700ms linear, transform 1000ms linear;
+            }
         }
 
     }
@@ -100,5 +109,15 @@ body {
             width: 100%;
             height: auto;
         }
+    }
+}
+
+@keyframes message-pop {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1
     }
 }

@@ -1,44 +1,59 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Message from './components/message';
 import { Header, Footer } from './components/ui-components';
 import ReactDOM from 'react-dom';
 
-const initialData = {
-  headerInfo : {
-    menuIconURL: "/images/menu-icon.png",
-    recipentName: "Surbhat"
-  },
-  footerInfo : {
-    imageURL: "/images/footer-image.png"
-  },
-  messages : [
-    {
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
-      time: new Date(Date.now()).toLocaleTimeString(),
-      status: "/images/sent-icon.png",
-      tempStatus: "/images/read-icon.png",
-      owner: "sent"
-    },
-    {
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
-      time: new Date(Date.now()).toLocaleTimeString(),
-      status: "",
-      tempStatus: "",
-      owner: "received"
-    }
-  ]
-}
+let nextMessage = 0;
 
 function Chat() {
-  let [data, setData] = useState(initialData.messages);
+
+  const initialData = {
+    headerInfo : {
+      menuIconURL: "/images/menu-icon.png",
+      recipentName: "Surbhat"
+    },
+    footerInfo : {
+      imageURL: "/images/footer-image.png"
+    },
+    messages : [
+      {
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
+        time: new Date(Date.now()).getTime(),
+        status: "/images/sent-icon.png",
+        tempStatus: "/images/read-icon.png",
+        messageClass: "message sent",
+        key: 0
+      },
+      {
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
+        time: new Date(Date.now()).getTime(),
+        status: "",
+        tempStatus: "",
+        messageClass: "message received",
+        key: 1
+      },
+      {
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
+        time: new Date(Date.now()).getTime(),
+        status: "",
+        tempStatus: "",
+        messageClass: "message received",
+        key: 2
+      }
+    ]
+  }
+
+  let [data, setData] = useState([]);
   const [seconds, setSeconds] = useState(0);
-  let chatRef = useRef(null);
+  /* let chatRef = useRef(null); */
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setData((oldData) => [...oldData, initialData.messages[Math.round(Math.random())]]);
+      setData((oldData) => [...oldData, initialData.messages[nextMessage]]);
       setSeconds(seconds+1);
-    }, 100000);
+      if (nextMessage < initialData.messages.length - 1) nextMessage++;
+    }, 2000);
 
     return () => clearInterval(timer);
   })
@@ -47,11 +62,13 @@ function Chat() {
     <div className="chat">
       <Header headerInfo={initialData.headerInfo}/>
       <div className="chat-live">
-        <div className="inner-chat" ref={chatRef}>
-          {data.map(message => (
-            <Message message={message} key={Math.random()*10000}/>
-          ))}
-        </div>
+          <TransitionGroup className="inner-chat">
+            {data.map(message => {
+              return  <CSSTransition timeout={0} key={message.key} classNames="animated">
+                          <Message message={message} key={message.key}/>
+                      </CSSTransition>
+            })}
+          </TransitionGroup>
       </div>
       <Footer footerInfo={initialData.footerInfo}/>
     </div>
