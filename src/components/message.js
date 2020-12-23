@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Message(props) {
+    const [status, setStatus] = useState(props.message.status);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            return setStatus(props.message.tempStatus);
+        }, Math.round(Math.random()*1000));
+
+        return () => clearTimeout(timer);
+    });
+
     return(
         <div className={`message ${props.message.owner}`}>
             <div className="message-text">
@@ -10,7 +20,7 @@ export default function Message(props) {
                 {props.message.time}
             </div>
             <div className="message-status">
-                {props.message.status}
+                <img src={status} alt="status"/>
             </div>
         </div>
     );

@@ -16,13 +16,15 @@ const initialData = {
     {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
       time: "5:31PM",
-      status: "Delivered",
+      status: "/images/sent-icon.png",
+      tempStatus: "/images/read-icon.png",
       owner: "sent"
     },
     {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
       time: "5:31PM",
-      status: "Delivered",
+      status: "/images/sent-icon.png",
+      tempStatus: "/images/read-icon.png",
       owner: "received"
     }
   ]
@@ -37,7 +39,7 @@ function Chat() {
     const timer = setInterval(() => {
       setData((oldData) => [...oldData, initialData.messages[Math.round(Math.random())]]);
       setSeconds(seconds+1);
-    }, 1000);
+    }, 144000);
 
     return () => clearInterval(timer);
   })
@@ -48,7 +50,7 @@ function Chat() {
       <div className="chat-live">
         <div className="inner-chat" ref={chatRef}>
           {data.map(message => (
-            <Message message={message} />
+            <Message message={message} key={Math.random()*10000}/>
           ))}
         </div>
       </div>
