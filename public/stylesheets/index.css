@@ -32,8 +32,9 @@ body {
 }
 
 .chat .chat-header .recipent-name {
+  white-space: nowrap;
   font-family: 'Vice City';
-  margin-right: 37.5%;
+  margin-right: 25%;
   color: #092c05;
   margin-left: auto;
   font-size: 26px;

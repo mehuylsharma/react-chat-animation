@@ -11,7 +11,7 @@ function Chat() {
   const initialData = {
     headerInfo : {
       menuIconURL: "/images/menu-icon.png",
-      recipentName: "Surbhat"
+      recipentName: "Probably Adam"
     },
     footerInfo : {
       imageURL: "/images/footer-image.png"
@@ -42,7 +42,7 @@ function Chat() {
         key: 2
       },
       {
-        text: "Ah, It must be another wrong number then.",
+        text: "Ah, It must be a wrong number then.",
         time: new Date(Date.now()).getTime(),
         status: "/images/sent-icon.png",
         tempStatus: "/images/read-icon.png",

@@ -19,8 +19,9 @@ body {
         height: 7.5%;
         width: 100%;
         .recipent-name {
+            white-space: nowrap;
             font-family: 'Vice City';
-            margin-right: 37.5%;
+            margin-right: 25%;
             color: rgb(9, 44, 5);
             margin-left: auto;
             font-size: 26px;
