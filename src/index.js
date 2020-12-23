@@ -18,7 +18,7 @@ function Chat() {
     },
     messages : [
       {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
+        text: "Hello, Who's This?",
         time: new Date(Date.now()).getTime(),
         status: "/images/sent-icon.png",
         tempStatus: "/images/read-icon.png",
@@ -26,7 +26,7 @@ function Chat() {
         key: 0
       },
       {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
+        text: "Adam this side.",
         time: new Date(Date.now()).getTime(),
         status: "",
         tempStatus: "",
@@ -34,12 +34,36 @@ function Chat() {
         key: 1
       },
       {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae sem leo. Etiam arcu mi, lobortis eu lacus vitae, convallis ullamcorper leo.",
+        text: "Who are you?",
         time: new Date(Date.now()).getTime(),
         status: "",
         tempStatus: "",
         messageClass: "message received",
         key: 2
+      },
+      {
+        text: "Ah, It must be another wrong number then.",
+        time: new Date(Date.now()).getTime(),
+        status: "/images/sent-icon.png",
+        tempStatus: "/images/read-icon.png",
+        messageClass: "message sent",
+        key: 3
+      },
+      {
+        text: "Meant to contact someone else, anyway have a good one!",
+        time: new Date(Date.now()).getTime(),
+        status: "/images/sent-icon.png",
+        tempStatus: "/images/read-icon.png",
+        messageClass: "message sent",
+        key: 4
+      },
+      {
+        text: "You too stranger!",
+        time: new Date(Date.now()).getTime(),
+        status: "",
+        tempStatus: "",
+        messageClass: "message received",
+        key: 5
       }
     ]
   }
@@ -64,7 +88,7 @@ function Chat() {
       <div className="chat-live">
           <TransitionGroup className="inner-chat">
             {data.map(message => {
-              return  <CSSTransition timeout={0} key={message.key} classNames="animated">
+              return  <CSSTransition timeout={500} key={message.key} classNames="animated">
                           <Message message={message} key={message.key}/>
                       </CSSTransition>
             })}

@@ -90,12 +90,11 @@ body {
             }
 
             &.animated-enter {
-                opacity: 0;
+                animation: message-pop 0.2s ease-in-out;
             }
             
             &.animated-enter-active {
-                opacity: 1;
-                transition: opacity 700ms linear, transform 1000ms linear;
+                animation: message-pop 0.2s ease-in-out;
             }
         }
 
@@ -113,11 +112,15 @@ body {
 }
 
 @keyframes message-pop {
-    from {
-        opacity: 0;
+    0% {
+        transform: scale(0.5) translateY(50px);
     }
 
-    to {
-        opacity: 1
+    80% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1) translateY(0px);
     }
 }

@@ -6,7 +6,7 @@ export default function Message(props) {
     useEffect(() => {
         const timer = setTimeout(() => {
             return setStatus(props.message.tempStatus);
-        }, Math.round(Math.random()*1000));
+        }, Math.round(Math.random()*3000));
 
         return () => clearTimeout(timer);
     });
