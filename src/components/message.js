@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Message(props) {
-    const [status, setStatus] = useState(props.message.status);
+    const [status, setStatus] = useState('');
 
+    //Change status from sending to sent
     useEffect(() => {
         const timer = setTimeout(() => {
-            return setStatus(props.message.tempStatus);
-        }, Math.round(Math.random()*3000));
+            return setStatus(props.message.status);
+        }, Math.round(Math.random()*1500));
 
         return () => clearTimeout(timer);
     });

@@ -4,80 +4,84 @@ import Message from './components/message';
 import { Header, Footer } from './components/ui-components';
 import ReactDOM from 'react-dom';
 
+//Var to index the next message from Data
 let nextMessage = 0;
 
 function Chat() {
+  let [data, setData] = useState([]);
+  const [seconds, setSeconds] = useState(0);
 
+  //Hardcoded Data - Header + Footer + Messages
   const initialData = {
     headerInfo : {
       menuIconURL: "/images/menu-icon.png",
-      recipentName: "Probably Adam"
+      recipentName: "Broadband Support"
     },
     footerInfo : {
       imageURL: "/images/footer-image.png"
     },
     messages : [
       {
-        text: "Hello, Who's This?",
+        text: "Did it work yet?",
         time: new Date(Date.now()).getTime(),
         status: "/images/sent-icon.png",
         tempStatus: "/images/read-icon.png",
         messageClass: "message sent",
-        key: 0
+        key: data.length - 1
       },
       {
-        text: "Adam this side.",
+        text: "Nope. We're still trying.",
         time: new Date(Date.now()).getTime(),
         status: "",
         tempStatus: "",
         messageClass: "message received",
-        key: 1
+        key: data.length - 1
       },
       {
-        text: "Who are you?",
+        text: "You can use your mobile data in the meantime, we'll pay.",
         time: new Date(Date.now()).getTime(),
         status: "",
         tempStatus: "",
         messageClass: "message received",
-        key: 2
+        key: data.length - 1
       },
       {
-        text: "Ah, It must be a wrong number then.",
+        text: "Thank you, but make sure it's fixed fast.",
         time: new Date(Date.now()).getTime(),
         status: "/images/sent-icon.png",
         tempStatus: "/images/read-icon.png",
         messageClass: "message sent",
-        key: 3
+        key: data.length - 1
       },
       {
-        text: "Meant to contact someone else, anyway have a good one!",
+        text: "It's my company's and my boss will eat me up.",
         time: new Date(Date.now()).getTime(),
         status: "/images/sent-icon.png",
         tempStatus: "/images/read-icon.png",
         messageClass: "message sent",
-        key: 4
+        key: data.length - 1
       },
       {
-        text: "You too stranger!",
+        text: "Don't worry we're trying to fix it asap.",
         time: new Date(Date.now()).getTime(),
         status: "",
         tempStatus: "",
         messageClass: "message received",
-        key: 5
+        key: data.length - 1
       }
     ]
   }
 
-  let [data, setData] = useState([]);
-  const [seconds, setSeconds] = useState(0);
-  /* let chatRef = useRef(null); */
-
+  //Adding new messages
   useEffect(() => {
     const timer = setInterval(() => {
       setData((oldData) => [...oldData, initialData.messages[nextMessage]]);
       setSeconds(seconds+1);
-      if (nextMessage < initialData.messages.length - 1) nextMessage++;
-    }, 2000);
+      nextMessage++;
+      if (nextMessage > initialData.messages.length - 1) {
+        nextMessage = 0;
+      }
+    }, 2500);
 
     return () => clearInterval(timer);
   })
